@@ -8,7 +8,12 @@ package 'httpd' do
 end
 
 file '/var/www/html/index.html' do
-	content '<h1>Hello, world!</h1>'
+	content "
+	<h1>Hello, world!</h1>
+
+	IPADDRESS: #{node['ipaddress']}
+	HOSTNAME: #{node['hostname']}
+"
 	action :create
 end
 
